@@ -1,0 +1,19 @@
+{
+  "background_color": "{{SPLASH_SCREEN_COLOR}}",
+  "description": "A simple game built with Phaser.",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "assets/images/{{GAME_NAME}}-screenshot-maskable.png",
+      "type": "image/png",
+      "sizes": "16x16 32x32 64x64 128x128 192x192 256x256 512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "lang": "el-GR",
+  "name": "[GK] Game: {{GAME_DISPLAY_NAME}}",
+  "orientation": "any",
+  "short_name": "{{GAME_DISPLAY_NAME}}",
+  "start_url": "index.html?utm_source=homescreen",
+  "theme_color": "{{THEME_COLOR}}"
+}

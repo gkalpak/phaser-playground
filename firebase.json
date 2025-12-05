@@ -1,0 +1,9 @@
+{
+  "hosting": {
+    "ignore": [
+      "**/_template/",
+      "**/*.md"
+    ],
+    "public": "app/"
+  }
+}

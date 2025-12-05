@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Game: Breakout</title>
+
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="darkorchid" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon shortcut" href="assets/images/favicon.ico" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body onload="javascript:navigator.serviceWorker.register('sw.js');">
+    <script>console.clear();</script>
+    <script src="../_shared/vendor/phaser@3.24.1/index.min.js"></script>
+    <script type="module" src="scripts/index.js"></script>
+  </body>
+</html>

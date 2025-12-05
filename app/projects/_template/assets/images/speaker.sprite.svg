@@ -1,0 +1,41 @@
+<svg id="speaker" width="40" height="20" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Speaker body. -->
+    <g id="speaker-body" fill="var(--spkr-color)" stroke="none">
+      <path d="M10 30 h20 v40 h-20 z" />
+      <path d="M35 30 l30 -25 v90 l-30 -25 z" />
+    </g>
+    <!-- Sound waves. -->
+    <g id="sound-waves" fill="var(--spkr-color)" stroke="none">
+      <path d="M70 20 a20 30 0 0 1 0 60 v-5 a15 25 0 0 0 0 -50 z" />
+      <path d="M70 35 a10 15 0 0 1 0 30 v-5 a5 10 0 0 0 0 -20 z" />
+    </g>
+    <!-- Cancellation stroke. -->
+    <g id="cancellation-stroke" stroke="var(--spkr-cancel-line-color)" stroke-linecap="round" stroke-width="15">
+      <line x1="90" y1="10" x2="10" y2="90" />
+    </g>
+
+    <!-- Muted speaker. -->
+    <g id="speaker-muted">
+      <use href="#speaker-body" />
+      <use href="#cancellation-stroke" />
+    </g>
+    <!-- Unmuted speaker. -->
+    <g id="speaker-unmuted">
+      <use href="#speaker-body" />
+      <use href="#sound-waves" />
+    </g>
+  </defs>
+
+  <style>
+    svg#speaker {
+      --spkr-color: #47e;
+      --spkr-cancel-line-color: red;
+    }
+    
+    svg#speaker #speaker-unmuted { transform: translateX(100px); }
+  </style>
+
+  <use href="#speaker-muted" />
+  <use href="#speaker-unmuted" />
+</svg>

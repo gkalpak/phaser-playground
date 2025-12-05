@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SVG Viewer</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon shortcut" href="../_template/assets/images/favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- HTML -->
+    <header>
+      <h1>Προεπισκόπηση SVG</h1>
+    </header>
+
+    <main>
+      <section class="controls">
+        <form class="control-form" id="imagePathForm"
+            onsubmit="onImagePathChange(imagePathInput.value); return false">
+          <label class="control-label">
+            <span class="control-description">Αρχείο SVG:</span>
+            <input type="text" id="imagePathInput" placeholder="Σχετική διεύθυνση αρχείου..." minlength="5" required />
+            <button type="submit">Άνοιγμα</button>
+          </label>
+        </form>
+        <form class="control-form" id="displayConfigForm">
+          <label class="control-label">
+            <span class="control-description">Ανανέωση κάθε (δευτ.):</span>
+            <input type="number" id="watchIntervalInput" min="0" step="0.5" max="60"
+                oninput="onWatchIntervalChange(this.value)" />
+          </label>
+          <label class="control-label">
+            <span class="control-description">Κλίμακα εικόνας (%):</span>
+            <input type="range" id="scalePercentageInput" list="scalePercentageTickmarks" min="0" step="10" max="200"
+                oninput="onScalePercentageChange(this.value)" />
+            <code id="scalePercentageOutput"></code>
+            <datalist id="scalePercentageTickmarks">
+              <option value="0"></option>
+              <option value="20"></option>
+              <option value="40"></option>
+              <option value="60"></option>
+              <option value="80"></option>
+              <option value="100"></option>
+              <option value="120"></option>
+              <option value="140"></option>
+              <option value="160"></option>
+              <option value="180"></option>
+              <option value="200"></option>
+            </datalist>
+          </label>
+        </form>
+      </section>
+
+      <section class="output">
+        <nav class="tab-links">
+          <button class="tab-link active" onclick="activateTab(this, fullImageTab)">
+            Πλήρης εικόνα
+          </button>
+          <button class="tab-link for-spritesheet" onclick="activateTab(this, spritesheetViewTab)">
+            Προβολή spritesheet
+          </button>
+        </nav>
+
+        <section class="tab-contents">
+          <article class="tab-content active" id="fullImageTab">
+            <img class="svg-image" id="fullImage" src="#" onload="onImageLoad()" />
+            <div class="image-sizes-container">
+              <span>
+                <small>Αρχικό μέγεθος:</small>
+                <code id="imageOriginalSizeOutput">N/A</code>
+              </span>
+              <span>
+                <small>Μέγεθος εμφάνισης:</small>
+                <code id="imageDisplaySizeOutput">N/A</code>
+              </span>
+            </div>
+          </article>
+
+          <article class="tab-content for-spritesheet" id="spritesheetViewTab">
+            <nav id="spriteThumbnailContainer" autofocus tabindex="-1"></nav>
+            <img class="svg-image" id="spritePreviewImage" src="#" />
+            <div class="image-sizes-container">
+              <span>
+                <small>Αρχικό μέγεθος:</small>
+                <code id="spriteOriginalSizeOutput">N/A</code>
+              </span>
+              <span>
+                <small>Μέγεθος εμφάνισης:</small>
+                <code id="spriteDisplaySizeOutput">N/A</code>
+              </span>
+            </div>
+            <form class="control-form" id="spriteAnimationForm">
+              <fieldset>
+                <legend>Κινούμενη απεικόνιση (Animation)</legend>
+                <label class="control-label">
+                  <span class="control-description">Διάρκεια (δευτ.):</span>
+                  <input type="number" id="animDurationInput" min="0.5" step="0.5" max="10" value="1" />
+                </label>
+                <label class="control-label">
+                  <span class="control-description">Επανάληψη:</span>
+                  <input type="checkbox" id="animLoopCheckbox" />
+                </label>
+                <button type="button" id="animStartButton" onclick="startSpriteAnimation(animDurationInput.value, animLoopCheckbox.checked)">
+                  Εκτέλεση
+                </button>
+                <button type="button" id="animStopButton" class="hidden" onclick="stopSpriteAnimation()">
+                  Παύση
+                </button>
+              </fieldset>
+            </form>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

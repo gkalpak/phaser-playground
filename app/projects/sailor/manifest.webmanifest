@@ -1,0 +1,19 @@
+{
+  "background_color": "goldenrod",
+  "description": "A simple game built with Phaser.",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "assets/images/sailor-screenshot-maskable.png",
+      "type": "image/png",
+      "sizes": "16x16 32x32 64x64 128x128 192x192 256x256 512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "lang": "el-GR",
+  "name": "[GK] Game: Sailor",
+  "orientation": "any",
+  "short_name": "Sailor",
+  "start_url": "index.html?utm_source=homescreen",
+  "theme_color": "steelblue"
+}

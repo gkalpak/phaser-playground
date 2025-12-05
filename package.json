@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "name": "@gkalpak/phaser-playground",
+  "version": "0.0.0",
+  "description": "A playground for experimenting with the Phaser game framework.",
+  "scripts": {
+    "deploy": "firebase deploy",
+    "release": "gkcu-run \"npm version \\${*:patch}\"",
+    "postrelease": "npm run deploy",
+    "scaffold-game": "node scripts/scaffold-game",
+    "start": "firebase serve",
+    "test": "node --eval \"console.error('No tests...yet!'); process.exit(1)\"",
+    "postversion": "git push && git push --tags"
+  },
+  "type": "module",
+  "license": "Unlicense",
+  "author": "gkalpak <kalpakas.g@gmail.com> (https://github.com/gkalpak)",
+  "devDependencies": {
+    "@gkalpak/cli-utils": "^0.2.0",
+    "firebase-tools": "^14.27.0"
+  }
+}

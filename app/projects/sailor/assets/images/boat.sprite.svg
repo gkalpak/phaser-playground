@@ -1,0 +1,78 @@
+<svg id="boat" width="120" height="40" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Boat shape. -->
+    <g id="boat-shape" stroke="var(--boat-color-outline)" stroke-linejoin="round">
+      <path d="M32 95 h36 q2 0, 4 -4 C72 93, 100 25, 50 5 C0 25, 28 91, 28 91 q2 4, 4 4" />
+    </g>
+    <!-- Boat seat. -->
+    <g id="boat-seat" fill="var(--boat-color-outer)" stroke="var(--boat-color-outline)" stroke-linejoin="round">
+      <rect x="30" y="50" width="40" height="10" rx="1" ry="5" />
+    </g>
+    
+    <!-- Boat body. -->
+    <g id="boat-body">
+      <use href="#boat-shape" class="boat-body-outer" />
+      <use href="#boat-shape" class="boat-body-inner" />
+      <use href="#boat-seat" />
+    </g>
+    <!-- Paddle. -->
+    <g id="paddle" fill="var(--boat-color-outer)" stroke="var(--boat-color-outline)" stroke-linejoin="round">
+      <path d="M45 54 h-25 l-5 -4 h-10 v10 h10 l5 -4 h25 z" />
+    </g>
+
+    <!-- Boat 1. -->
+    <g id="boat-1">
+      <use href="#boat-body" />
+      <use href="#paddle" class="paddle-left" />
+      <use href="#paddle" class="paddle-right" />
+    </g>
+
+    <!-- Boat 2. -->
+    <g id="boat-2">
+      <use href="#boat-body" />
+<!--       <use href="#paddle" class="paddle-left" /> -->
+<!--       <use href="#paddle" class="paddle-right" /> -->
+    </g>
+
+    <!-- Boat 3. -->
+    <g id="boat-3">
+      <use href="#boat-body" />
+      <use href="#paddle" class="paddle-right" />
+    </g>
+  </defs>
+
+  <style>
+    svg#boat {
+      --boat-color-inner: darkgoldenrod;
+      --boat-color-outer: saddlebrown;
+      --boat-color-outline: #0005;
+    }
+    
+    svg#boat .boat-body-inner {
+      fill: var(--boat-color-inner);
+      transform: scale(0.65, 0.75);
+      transform-origin: 50px center;
+    }
+    
+    svg#boat .boat-body-outer {
+      fill: var(--boat-color-outer);
+    }
+    
+    svg#boat .paddle-left {
+      transform: translateX(-5px) rotateY(30deg) rotateX(-45deg) rotateZ(-10deg);
+      transform-origin: 50px 55px;
+    }
+    
+    svg#boat .paddle-right {
+      transform: rotateZ(180deg);
+      transform-origin: 50px 55px;
+    }
+    
+    svg#boat #boat-2 { transform: translateX(100px); }
+    svg#boat #boat-3 { transform: translateX(200px); }
+  </style>
+
+  <use href="#boat-1" />
+  <use href="#boat-2" />
+  <use href="#boat-3" />
+</svg>
