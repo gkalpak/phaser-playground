@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@gkalpak/phaser-playground",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A playground for experimenting with the Phaser game framework.",
   "scripts": {
     "deploy": "firebase deploy",
